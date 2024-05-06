@@ -1,0 +1,495 @@
+
+<?xml version="1.0"?>
+
+<!--Copyright (c) 2024 - for information on the respective copyright owner see the NOTICE file and/or the repository https://github.com/boschresearch/remroc/. -->
+<!--SPDX-License-Identifier: Apache-2.0 -->
+<!-- -->
+<!--This source code is derived from rmf_demos v2.2.3 -->
+<!--  (https://github.com/open-rmf/rmf_demos) -->
+<!--Copyright 2021 Open Source Robotics Foundation, Inc., licensed under the Apache-2.0 license, -->
+<!--cf. 3rd-party-licenses.txt file in the root directory of this source tree. -->
+
+<sdf version="1.6">
+  <model name='SmallDeliveryRobot'>
+
+    <link name="base_link">
+      <pose>0 0 0 0 0 -1.57</pose>
+
+      <inertial>
+        <pose>0 0 0.15075 0 0 0</pose>
+        <mass>70</mass>
+        <inertia>
+          <ixx>5.1526</ixx>
+          <iyy>2.4944</iyy>
+          <izz>6.2829</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="body">
+        <geometry>
+          <mesh>
+            <uri>model://SmallDeliveryRobot/meshes/body.obj</uri>
+            <scale> 0.75 0.75 0.75 </scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="body">
+        <geometry>
+          <mesh>
+            <uri>model://SmallDeliveryRobot/meshes/body.obj</uri>
+            <scale> 0.75 0.75 0.75 </scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+
+
+
+<!-- Model -->
+
+      <visual name="WheelLeftFront">
+        <pose>-0.165 -0.1965 0.04575 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SmallDeliveryRobot/meshes/WheelMain.obj</uri>
+            <scale> 0.75 0.75 0.75 </scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="front_caster_left">
+        <pose>-.1875 -.2025 0.0375 0 0 0</pose>
+        <geometry>
+          <sphere><radius>0.0375</radius></sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <torsional>
+              <coefficient>0.0</coefficient>
+            </torsional>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+            <bullet>
+              <friction>0.0</friction>
+              <friction2>0.0</friction2>
+              <rolling_friction>0.0</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name="WheelLeftBack">
+        <pose>-0.165 0.2505 0.04575 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://SmallDeliveryRobot/meshes/WheelMain.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="back_caster_left">
+        <pose>-.1875 .255 0.0375 0 0 0</pose>
+        <geometry>
+          <sphere><radius>0.0375</radius></sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <torsional>
+              <coefficient>0.0</coefficient>
+            </torsional>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+            <bullet>
+              <friction>0.0</friction>
+              <friction2>0.0</friction2>
+              <rolling_friction>0.0</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name="WheelRightFront">
+        <pose>0.16275 -0.1965 0.04575 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale> 0.75 0.75 0.75 </scale>
+            <uri>model://SmallDeliveryRobot/meshes/WheelMain.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="front_caster_right">
+        <pose>.1875 -.2025 0.0375 0 0 0</pose>
+        <geometry>
+          <sphere><radius>0.0375</radius></sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <torsional>
+              <coefficient>0.0</coefficient>
+            </torsional>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+            <bullet>
+              <friction>0.0</friction>
+              <friction2>0.0</friction2>
+              <rolling_friction>0.0</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name="WheelRightBack">
+        <pose>0.16275 0.2505 0.04575 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale> 0.75 0.75 0.75 </scale>
+            <uri>model://SmallDeliveryRobot/meshes/WheelMain.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="back_caster_right">
+        <pose>.1875 .255 0.0375 0 0 0</pose>
+        <geometry>
+          <sphere><radius>0.0375</radius></sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <torsional>
+              <coefficient>0.0</coefficient>
+            </torsional>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+            <bullet>
+              <friction>0.0</friction>
+              <friction2>0.0</friction2>
+              <rolling_friction>0.0</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <link name="suspension_tire_left">
+      <!-- This is a dummy link that's used to connect a suspension (prismatic
+           joint) to the tire axis (revolute joint) -->
+      <pose>0 0.195 0.075 0 0 0</pose>
+      <inertial>
+        <mass>1.00</mass>
+        <inertia>
+          <ixx>1.00</ixx>
+          <iyy>1.00</iyy>
+          <izz>1.00</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <joint name="joint_suspension_tire_left" type="prismatic">
+      <parent>base_link</parent>
+      <child>suspension_tire_left</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <damping>500</damping>
+          <spring_reference>-0.09</spring_reference>
+          <spring_stiffness>2000</spring_stiffness>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>true</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+
+    <link name="tire_left">
+      <pose>0 0.195 0.075 0 0 0</pose>
+
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>5.0</mass>
+        <!--<mass>2.60595111</mass>-->
+        <!-- Note: These calculated MOI values seem to be too small for ODE's
+                   numerical precision and make the robot slip. So instead we 
+                   use some higher values (x10) which seem to get better 
+                   behavior-->
+        <!--inertia>
+          <ixx>0.00757897446874</ixx>
+          <iyy>0.01302975553365</iyy>
+          <izz>0.00757897446874</izz>
+        </inertia-->
+        <!--
+        <inertia>
+          <ixx>0.1302975553365</ixx>
+          <iyy>0.0757897446874</iyy>
+          <izz>0.0757897446874</izz>
+        </inertia>
+        -->
+        <inertia>
+          <ixx>0.757897446874</ixx>
+          <iyy>1.302975553365</iyy>
+          <izz>0.757897446874</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="WheelSideLeft">
+        <pose>0 0.0 0.0 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <scale> 0.75 0.75 0.75 </scale>
+            <uri>model://SmallDeliveryRobot/meshes/WheelSide.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="tire_left">
+        <geometry>
+          <sphere><radius>0.0460275</radius></sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>10000000.0</kp>
+              <kd>1.0</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <joint name="joint_tire_left" type="revolute">
+      <parent>suspension_tire_left</parent>
+      <child>tire_left</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <link name="suspension_tire_right">
+      <!-- This is a dummy link that's used to connect a suspension (prismatic
+           joint) to the tire axis (revolute joint) -->
+      <pose>0 -0.195 0.075 0 0 0</pose>
+      <inertial>
+        <mass>1.00</mass>
+        <inertia>
+          <ixx>1.00</ixx>
+          <iyy>1.00</iyy>
+          <izz>1.00</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <joint name="joint_suspension_tire_right" type="prismatic">
+      <parent>base_link</parent>
+      <child>suspension_tire_right</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <damping>500</damping>
+          <spring_reference>-0.09</spring_reference>
+          <spring_stiffness>2000</spring_stiffness>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>true</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+
+    <link name="tire_right">
+      <pose>0 -0.195 0.075 0 0 0</pose>
+
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <!--<mass>2.60595111</mass>-->
+        <mass>5.0</mass>
+        <!-- Note: These calculated MOI values seem to be too small for ODE's
+                   numerical precision and make the robot slip. So instead we 
+                   use some higher values (x10) which seem to get better 
+                   behavior-->
+        <!--inertia>
+          <ixx>0.00757897446874</ixx>
+          <iyy>0.01302975553365</iyy>
+          <izz>0.00757897446874</izz>
+        </inertia-->
+        <!--
+        <inertia>
+          <ixx>0.1302975553365</ixx>
+          <iyy>0.0757897446874</iyy>
+          <izz>0.0757897446874</izz>
+        </inertia>
+        -->
+        <inertia>
+          <ixx>0.757897446874</ixx>
+          <iyy>1.302975553365</iyy>
+          <izz>0.757897446874</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="WheelSideRight">
+        <pose>0 0.0 0.0 0 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <scale> 0.75 0.75 0.75 </scale>
+            <uri>model://SmallDeliveryRobot/meshes/WheelSide.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="tire_right">
+        <geometry>
+          <sphere><radius>0.0460275</radius></sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>10000000.0</kp>
+              <kd>1.0</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <joint name="joint_tire_right" type="revolute">
+      <parent>suspension_tire_right</parent>
+      <child>tire_right</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+<!-- SENSORS -->
+
+    <link name="imu_link">
+      <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+      <sensor name="imu" type="imu">
+        <update_rate>30</update_rate>
+        <visualize>false</visualize>
+      </sensor>
+    </link>
+
+    <joint name="imu_link_joint" type="fixed">
+      <child>imu_link</child>
+      <parent>base_link</parent>
+    </joint>
+
+    <link name="scan_omni">
+      <pose>-0.2855 0 0.4318 0 0 0</pose>
+      <visual name="velodyne_base">
+        <pose>0 0 -0.035 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.06</radius>
+            <length>0.0015</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name="velodyne_suport_1">
+        <pose>-0.035 0.035 -0.13 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.19</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name="velodyne_suport_2">
+        <pose>-0.035 -0.035 -0.13 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.19</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name="velodyne_suport_3">
+        <pose>0.0495 0 -0.13 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.19</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <!-- Bottom cylinder of Ouster/Velodyne 3D Lidar -->
+      <visual name="velodyne_base_link_visual_base">
+        <pose>0 0 -0.035 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale> 0.75 0.75 0.75 </scale>
+            <uri>model://SmallDeliveryRobot/meshes/VLP16_base_1.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <!-- Top cylinder of Ouster/Velodyne 3D Lidar -->
+      <visual name="velodyne_base_link_visual_sensor">
+        <pose>0 0 -0.035 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale> 0.75 0.75 0.75 </scale>
+            <uri>model://SmallDeliveryRobot/meshes/VLP16_base_2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <!-- Main cylinder of Ouster/Velodyne 3D Lidar -->
+      <visual name="base_link_velodyne_visual_scan">
+        <pose>0 0 -0.035 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale> 0.75 0.75 0.75 </scale>
+            <uri>model://SmallDeliveryRobot/meshes/VLP16_scan.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <sensor name="scan_omni" type="gpu_lidar">
+        <update_rate>10</update_rate>
+        <!-- <topic>lidar</topic> -->
+        <lidar>
+          <scan>
+            <horizontal>
+              <!-- Real samples value is 1800 -->
+              <samples>314</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.141592654</min_angle>
+              <max_angle>3.141592654</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>8</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.261799388</min_angle>
+              <max_angle>0.261799388</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.2</min>
+            <max>100.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </lidar>
+      </sensor>
+    </link>
+
+    <joint name="scan_omni_joint" type="fixed">
+      <child>scan_omni</child>
+      <parent>base_link</parent>
+    </joint>
+
+    <!-- CONTROLERS PLUGINS -->
+    <!-- DIFF DRIVE PLUGIN / WHEELS CONTROLER -->
+    <plugin filename="ignition-gazebo-diff-drive-system" name="ignition::gazebo::systems::DiffDrive">
+      <left_joint>joint_tire_left</left_joint>
+      <right_joint>joint_tire_right</right_joint>
+      <wheel_separation>0.39</wheel_separation>
+      <wheel_radius>0.0460275</wheel_radius>
+      <odom_publish_frequency>20</odom_publish_frequency>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+    </plugin>
+
+  </model>
+</sdf>

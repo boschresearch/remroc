@@ -1,0 +1,16 @@
+imu:
+  x: '0.0'
+  y: '0.0'
+  z: '0.0'
+  yaw: '0.0'
+  pitch: '0.0'
+  roll: '0.0'
+  sensor_frame_id: 'imu_link/imu'
+scan_omni:
+  x: '-0.2855'
+  y: '0.0'
+  z: '0.4318'
+  yaw: '0.0'
+  pitch: '0.0'
+  roll: '0.0'
+  sensor_frame_id: 'scan_omni/scan_omni'

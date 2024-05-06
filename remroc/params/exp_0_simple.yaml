@@ -1,0 +1,80 @@
+robots:
+  - id: 0
+    type: "SmallDeliveryRobot"
+    start: 
+      - 3.635
+      - 4.0
+      - -1.57
+    goal:
+      - -2.175
+      - -4.0
+  
+  - id: 1
+    type: "SmallDeliveryRobot"
+    start: 
+      - 2.175
+      - 4.0
+      - -1.57
+    goal:
+      - -0.725
+      - -4.0
+  
+  - id: 2
+    type: "SmallDeliveryRobot"
+    start: 
+      - -2.175
+      - 4.0
+      - -1.57
+    goal:
+      - 0.725
+      - -4.0
+  
+  - id: 3
+    type: "SmallDeliveryRobot"
+    start: 
+      - -3.635
+      - 4.0
+      - -1.57
+    goal:
+      - 2.175
+      - -4.0
+  
+  # - id: 4
+  #   type: "SmallDeliveryRobot"
+  #   start:
+  #     - 3.635 
+  #     - -4.0
+  #     - 1.57
+  #   goal:
+  #     - -2.175
+  #     - 4.0
+  
+  # - id: 5
+  #   type: "SmallDeliveryRobot"
+  #   start:
+  #     - 2.175
+  #     - -4.0
+  #     - 1.57
+  #   goal:
+  #     - -0.725
+  #     - 4.0
+  
+  # - id: 6
+  #   type: "SmallDeliveryRobot"
+  #   start:
+  #     - -3.635 
+  #     - -4.0
+  #     - 1.57
+  #   goal:
+  #     - 2.175
+  #     - 4.0
+  
+  # - id: 7
+  #   type: "SmallDeliveryRobot"
+  #   start:
+  #     - -2.175 
+  #     - -4.0
+  #     - 1.57
+  #   goal:
+  #     - 0.725
+  #     - 4.0

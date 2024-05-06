@@ -1,0 +1,44 @@
+/**:  
+  bt_navigator_node:
+    ros__parameters:
+      use_sim_time: true
+      global_frame: map
+      robot_base_frame: base_link
+      transform_tolerance: 0.1
+      # default_nav_to_pose_bt_xml: /home/lukas/nav2_ws/src/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml
+      # default_nav_through_poses_bt_xml: /home/lukas/nav2_ws/src/nav2_bt_navigator/behavior_trees/navigate_through_poses_w_replanning_and_recovery.xml
+      goal_blackboard_id: goal
+      goals_blackboard_id: goals
+      path_blackboard_id: path
+      navigators: ['navigate_to_pose', 'navigate_through_poses']
+      navigate_to_pose:
+        plugin: "nav2_bt_navigator/NavigateToPoseNavigator"
+      navigate_through_poses:
+        plugin: "nav2_bt_navigator/NavigateThroughPosesNavigator"
+      plugin_lib_names:
+        - nav2_remove_passed_goals_action_bt_node
+        - nav2_compute_path_through_poses_action_bt_node
+        - nav2_compute_path_to_pose_action_bt_node
+        - nav2_follow_path_action_bt_node
+        - nav2_back_up_action_bt_node
+        - nav2_spin_action_bt_node
+        - nav2_wait_action_bt_node
+        - nav2_clear_costmap_service_bt_node
+        - nav2_is_stuck_condition_bt_node
+        - nav2_goal_reached_condition_bt_node
+        - nav2_initial_pose_received_condition_bt_node
+        - nav2_goal_updated_condition_bt_node
+        - nav2_reinitialize_global_localization_service_bt_node
+        - nav2_rate_controller_bt_node
+        - nav2_distance_controller_bt_node
+        - nav2_speed_controller_bt_node
+        - nav2_recovery_node_bt_node
+        - nav2_pipeline_sequence_bt_node
+        - nav2_round_robin_node_bt_node
+        - nav2_transform_available_condition_bt_node
+        - nav2_time_expired_condition_bt_node
+        - nav2_distance_traveled_condition_bt_node
+        - nav2_single_trigger_bt_node
+      error_code_names:
+        - compute_path_error_code
+        - follow_path_error_code

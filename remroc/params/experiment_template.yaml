@@ -1,0 +1,51 @@
+# This dictionary defines the robotic setup of the experiment
+robots:
+  - id: 0 # Each robot has to have an individual id. Recomendation to use increasing integers.
+    type: "SmallDeliveryRobot" # The type of the robot. It is important that this matches the directory name in the "robots" subdirectory of the "remroc_robots" package.
+    start: # The start position, given in x[m], y[m], phi[rad]
+      - 13.0
+      - -2.0
+      - 3.14
+    goal: # The goal position, given in x[m], y[m] TODO: add the functionality to define a heading for the goal state as well.
+      - 0.0
+      - 0.0
+  
+  - id: 1
+    type: "SmallDeliveryRobot"
+    start:
+      - 12.0 
+      - 2.0
+      - 3.14
+    goal:
+      - 1.0
+      - 0.0
+  
+  - id: 2
+    type: "SmallDeliveryRobot"
+    start:
+      - 13.0
+      - 5.0
+      - 3.14
+    goal:
+      - 2.0
+      - 0.0
+
+  - id: 3
+    type: "SmallDeliveryRobot"
+    start:
+      - 13.0
+      - -5.0
+      - 3.14
+    goal:
+      - 3.0
+      - 0.0
+
+  - id: 4
+    type: "SmallDeliveryRobot"
+    start:
+      - 11.0
+      - 6.0
+      - 4.71
+    goal: 
+      - 4.0
+      - 0.0

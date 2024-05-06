@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>remroc</name>
+  <version>1.0.0</version>
+  <description>This is the Ros2 package for Realistic Multi Robot Coordination (REMROC). It holds the code to launch simulations and the experiments for the associated paper.</description>
+  <maintainer email="lukas.heuer@de.bosch.com">Lukas Heuer</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>ros_ign_gazebo</depend>
+  <depend>ros_gz_bridge</depend>
+  <depend>navigation2</depend>
+  <depend>robot_localization</depend>
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
