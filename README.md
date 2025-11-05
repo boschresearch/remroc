@@ -101,8 +101,22 @@ Using a robot type in REMROC, requires a Gazebo model and a local navigation sta
 - Navigation components: Make sure that all the required navigation components for the robots are launched in the main launchfile.
 
 
+## Citation
 
-# Known Issues
+If you find our code or paper useful, please cite
+
+```bibtex
+@inproceedings{heuer2024benchmarking,
+  title={Benchmarking Multi-robot coordination in realistic, unstructured human-shared environments},
+  author={Heuer, Lukas and Palmieri, Luigi and Mannucci, Anna and Koenig, Sven and Magnusson, Martin},
+  booktitle={2024 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={14541--14547},
+  year={2024},
+  organization={IEEE}
+}
+```
+
+## Known Issues
 
 Simulating multiple robots and their navigation stacks requires a considerable amount of computational resources. 
 To resolve performance issues we recommend reducing the number of robots in the experiment.
